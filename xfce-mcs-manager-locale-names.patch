@@ -1,5 +1,5 @@
 --- xfce-mcs-manager-4.2.1/configure.ac	2005-03-12 15:19:04.000000000 +0100
-+++ fix/xfce-mcs-manager-4.2.1/configure.ac	2005-03-16 02:24:38.956734160 +0100
++++ fix/xfce-mcs-manager-4.2.1/configure.ac	2005-03-16 02:40:59.802622920 +0100
 @@ -47,8 +47,8 @@
  
  dnl Check for i18n support
@@ -7,7 +7,7 @@
 -                             fi fr gu he hi hu it ja ko lt ms nb_NO nl pa \
 -                             pt_BR pt_PT pl ro ru sk sv ta tr uk vi zh_CN \
 +                             fi fr gu he hi hu it ja ko lt ms nb nl pa \
-+                             pt_BR pl ro ru sk sv ta tr uk vi zh_CN \
++                             pt_BR pt pl ro ru sk sv ta tr uk vi zh_CN \
                               zh_TW])
  
  dnl Check for libxfcegui4
