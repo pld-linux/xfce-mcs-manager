@@ -7,7 +7,7 @@ diff -ur xfce-mcs-manager.orig/configure.ac xfce-mcs-manager/configure.ac
  dnl Check for i18n support
 -BM_I18N([xfce-mcs-manager], [ar az bg ca cs de es es_MX eu fa_IR \
 +BM_I18N([xfce-mcs-manager], [ar az bg ca cs de es es_MX eu fa \
-                              fi fr hi hu it ja ko lt ms nl pt_BR \
+                              fi fr he hi hu it ja ko lt ms nl pt_BR \
 -                             pt_PT pl ru sv ta tr uk vi zh_CN zh_TW])
 +                             pt pl ru sv ta tr uk vi zh_CN zh_TW])
  
