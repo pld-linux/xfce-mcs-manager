@@ -1,13 +1,13 @@
---- xfce-mcs-manager-4.0.6/configure.ac.orig	2004-07-09 10:11:16.000000000 +0200
-+++ xfce-mcs-manager-4.0.6/configure.ac	2004-07-12 17:54:36.797620448 +0200
-@@ -27,8 +27,8 @@
- AC_CHECK_FUNCS([setsid sigaction])
+--- xfce-mcs-manager-4.1.1/configure.ac.orig	2004-07-12 22:56:58.000000000 +0200
++++ xfce-mcs-manager-4.1.1/configure.ac	2004-07-30 02:42:58.743596016 +0200
+@@ -45,8 +45,8 @@
+ AC_CHECK_FUNCS([daemon setsid sigaction])
  
  dnl Check for i18n support
--BM_I18N([xfce-mcs-manager], [ar az bg ca cs de es es_MX et eu fa_IR fi fr hi hu
--	 it ja ko lt ms nl no pt_BR pt_PT pl ru sv ta tr uk vi zh_CN zh_TW])
-+BM_I18N([xfce-mcs-manager], [ar az bg ca cs de es es_MX et eu fa fi fr hi hu
-+	 it ja ko lt ms nl nb pt_BR pt pl ru sv ta tr uk vi zh_CN zh_TW])
+-BM_I18N([xfce-mcs-manager], [ar az bg ca cs de es es_MX eu fa_IR fi fr hi hu it
+-	 ja ko lt ms nl pt_BR pt_PT pl ru sv ta tr uk vi zh_CN zh_TW])
++BM_I18N([xfce-mcs-manager], [ar az bg ca cs de es es_MX eu fa fi fr hi hu it
++	 ja ko lt ms nl pt_BR pt pl ru sv ta tr uk vi zh_CN zh_TW])
  
  dnl Check for libxfcegui4
- BM_DEPEND([LIBXFCEGUI4], [libxfcegui4-1.0], [4.0.0])
+ BM_DEPEND([LIBXFCEGUI4], [libxfcegui4-1.0], [4.1.20])
