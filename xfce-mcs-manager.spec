@@ -1,15 +1,18 @@
 #
 # TODO:
 # - check the icon & the desktop file
+
+%define		_snap 20040806
+
 Summary:	Multi channel settings manager
 Summary(pl):	Zarz±dca ustawieñ wielokana³owych
 Name:		xfce-mcs-manager
-Version:	4.1.1
-Release:	1
+Version:	4.2.0
+Release:	0.%{_snap}.1
 License:	LGPL
 Group:		X11/Applications
-Source0:	http://lo1sanok.eu.org/~troll/PLD/xfce4/%{name}-%{version}.tar.bz2
-# Source0-md5:	469e24788fee64a6e8de8adbac956414
+Source0:	http:///ep09.pld-linux.org/~havner/xfce4/%{name}-%{_snap}.tar.bz2
+# Source0-md5:	648fe63d70d4a7c990c25d4e6c0041ea
 Patch0:		%{name}-locale-names.patch
 URL:		http://www.xfce.org/
 BuildRequires:	autoconf
@@ -44,20 +47,11 @@ Header file for other apps to be able to build their own mcs plugins.
 Plik nag³ówkowy umo¿liwiaj±cy innym aplikacjom budowanie wtyczek mcs.
 
 %prep
-%setup -q
+%setup -q -n %{name}
 %patch0 -p1
 
 mv -f po/{fa_IR,fa}.po
 mv -f po/{pt_PT,pt}.po
-
-mkdir -p doc/it/images
-for i in doc/it{,/images}/Makefile.in
-do
-    cat << EOF > $i
-all:
-install:
-EOF
-done
 
 %build
 glib-gettextize --copy --force
@@ -97,6 +91,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/xfce4/doc
 %{_datadir}/xfce4/doc/C
 %lang(fr) %{_datadir}/xfce4/doc/fr
+%lang(it) %{_datadir}/xfce4/doc/it
 
 # common for some other xfce* packages
 %dir %{_sysconfdir}/xfce4
