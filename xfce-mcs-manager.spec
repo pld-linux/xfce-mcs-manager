@@ -9,10 +9,10 @@ Source0:	http://www.xfce.org/archive/xfce4-rc3/src/%{name}-%{version}.tar.gz
 # Source0-md5:	efa0059cf4ffcf877f2046fc09ebaf16
 URL:		http://www.xfce.org/
 BuildRequires:	intltool
-BuildRequires:	libxfce4mcs-devel >= 3.99.2
+BuildRequires:	libxfce4mcs-devel >= 3.99.3
 BuildRequires:	libxfcegui4-devel >= 3.99.3
 BuildRequires:	pkgconfig >= 0.9.0
-Requires:	libxfce4mcs >= 3.99.2
+Requires:	libxfce4mcs >= 3.99.3
 Requires:	libxfcegui4 >= 3.99.3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -26,8 +26,8 @@ xfce-mcs-manager to zarz±dca ustawieñ wielokana³owych dla xfce4.
 Summary:	Header file to build xfce-mcs-manager plugins
 Summary(pl):	Plik nag³ówkowy do tworzenia wtyczek xfce-mcs-managera
 Group:		Development/Libraries
-Requires:	libxfce4mcs-devel >= 3.91.0
-Requires:	libxfcegui4-devel >= 3.91.0
+Requires:	libxfce4mcs-devel >= 3.99.3
+Requires:	libxfcegui4-devel >= 3.99.3
 # doesn't require base
 
 %description devel
