@@ -1,19 +1,24 @@
+#
+# TODO:
+# - check the icon & the desktop file
+#
+%define		snap 20040616
+#
 Summary:	Multi channel settings manager
 Summary(pl):	Zarz±dca ustawieñ wielokana³owych
 Name:		xfce-mcs-manager
-Version:	4.0.5
-Release:	1
+Version:	4.1.0
+Release:	0.%{snap}.1
 License:	LGPL
 Group:		X11/Applications
-#Source0:	ftp://ftp.berlios.de/pub/xfce-goodies/%{version}/%{name}-%{version}.tar.gz
-Source0:	http://hannelore.f1.fhtw-berlin.de/mirrors/xfce4/xfce-%{version}/src/%{name}-%{version}.tar.gz
-# Source0-md5:	7b56465800c3c5665caf5c48f21f5087
+Source0:	%{name}-snap-%{snap}.tar.bz2
+# Source0-md5:	2d39e82d159dd34891cbcadf43b4082f
 URL:		http://www.xfce.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	intltool
 BuildRequires:	libxfce4mcs-devel >= %{version}
 BuildRequires:	libxfcegui4-devel >= %{version}
+BuildRequires:	libtool
 BuildRequires:	pkgconfig >= 0.9.0
 Requires:	libxfce4mcs >= %{version}
 Requires:	libxfcegui4 >= %{version}
@@ -40,13 +45,14 @@ Header file for other apps to be able to build their own mcs plugins.
 Plik nag³ówkowy umo¿liwiaj±cy innym aplikacjom budowanie wtyczek mcs.
 
 %prep
-%setup -q
+%setup -q -n %{name}
 
 %build
-rm -f missing
-glib-gettextize --copy --force
-intltoolize --copy --force
-cp -f /usr/share/automake/config.sub .
+%{__libtoolize}
+%{__aclocal} -I m4
+%{__autoheader}
+%{__automake}
+%{__autoconf}
 %configure
 
 %{__make}
@@ -67,11 +73,17 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog
 %attr(755,root,root) %{_bindir}/*
+%{_iconsdir}/hicolor/48x48/apps/xfce4-settings.png
+%{_desktopdir}/*.desktop
+
 %dir %{_libdir}/xfce4
 %dir %{_libdir}/xfce4/mcs-plugins
+
 %docdir %{_datadir}/xfce4/doc
 %dir %{_datadir}/xfce4/doc
 %{_datadir}/xfce4/doc/C
+%lang(fr) %{_datadir}/xfce4/doc/fr
+
 # common for some other xfce* packages
 %dir %{_sysconfdir}/xfce4
 
