@@ -25,10 +25,10 @@ Requires:	libxfcegui4 >= 4.1.27
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-xfce-mcs-manager is a multi channel settings manager for XFce.
+xfce-mcs-manager is a multi channel settings manager for Xfce.
 
 %description -l pl
-xfce-mcs-manager to zarz±dca ustawieñ wielokana³owych dla XFce.
+xfce-mcs-manager to zarz±dca ustawieñ wielokana³owych dla Xfce.
 
 %package devel
 Summary:	Header file to build xfce-mcs-manager plugins
