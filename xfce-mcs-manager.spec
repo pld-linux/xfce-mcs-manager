@@ -1,28 +1,26 @@
 #
 # TODO:
 # - check the icon & the desktop file
-#
-%define		snap 20040616
-#
 Summary:	Multi channel settings manager
 Summary(pl):	Zarz±dca ustawieñ wielokana³owych
 Name:		xfce-mcs-manager
-Version:	4.1.0
-Release:	0.%{snap}.1
+Version:	4.1.1
+Release:	1
 License:	LGPL
 Group:		X11/Applications
-Source0:	%{name}-snap-%{snap}.tar.bz2
-# Source0-md5:	2d39e82d159dd34891cbcadf43b4082f
+Source0:	http://lo1sanok.eu.org/~troll/PLD/xfce4/%{name}-%{version}.tar.bz2
+# Source0-md5:	469e24788fee64a6e8de8adbac956414
+Patch0:		%{name}-locale-names.patch
 URL:		http://www.xfce.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	intltool
 BuildRequires:	libxfce4mcs-devel >= %{version}
-BuildRequires:	libxfcegui4-devel >= %{version}
+BuildRequires:	libxfcegui4-devel >= 4.1.20
 BuildRequires:	libtool
 BuildRequires:	pkgconfig >= 0.9.0
-Requires:	libxfce4mcs >= %{version}
-Requires:	libxfcegui4 >= %{version}
+Requires:	libxfce4mcs >= 4.0.0
+Requires:	libxfcegui4 >= 4.1.20
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -35,8 +33,8 @@ xfce-mcs-manager to zarz±dca ustawieñ wielokana³owych dla XFce.
 Summary:	Header file to build xfce-mcs-manager plugins
 Summary(pl):	Plik nag³ówkowy do tworzenia wtyczek xfce-mcs-managera
 Group:		Development/Libraries
-Requires:	libxfce4mcs-devel >= %{version}
-Requires:	libxfcegui4-devel >= %{version}
+Requires:	libxfce4mcs-devel >= 4.0.0
+Requires:	libxfcegui4-devel >= 4.1.20
 # doesn't require base
 
 %description devel
@@ -46,7 +44,20 @@ Header file for other apps to be able to build their own mcs plugins.
 Plik nag³ówkowy umo¿liwiaj±cy innym aplikacjom budowanie wtyczek mcs.
 
 %prep
-%setup -q -n %{name}
+%setup -q
+%patch0 -p1
+
+mv -f po/{fa_IR,fa}.po
+mv -f po/{pt_PT,pt}.po
+
+mkdir -p doc/it/images
+for i in doc/it{,/images}/Makefile.in
+do
+    cat << EOF > $i
+all:
+install:
+EOF
+done
 
 %build
 glib-gettextize --copy --force
