@@ -15,10 +15,11 @@ Patch0:		%{name}-locale-names.patch
 URL:		http://www.xfce.org/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
+BuildRequires:	gettext-devel
 BuildRequires:	intltool
+BuildRequires:	libtool
 BuildRequires:	libxfce4mcs-devel >= %{version}
 BuildRequires:	libxfcegui4-devel >= %{version}
-BuildRequires:	libtool
 BuildRequires:	pkgconfig >= 1:0.9.0
 Requires:	libxfce4mcs >= %{version}
 Requires:	libxfcegui4 >= %{version}
