@@ -2,17 +2,15 @@
 # TODO:
 # - check the icon & the desktop file
 
-%define		_snap 20040816
-
 Summary:	Multi channel settings manager
 Summary(pl):	Zarz±dca ustawieñ wielokana³owych
 Name:		xfce-mcs-manager
-Version:	4.1.4
-Release:	0.%{_snap}.1
+Version:	4.1.91
+Release:	1
 License:	LGPL
 Group:		X11/Applications
-Source0:	http://ep09.pld-linux.org/~havner/xfce4/%{name}-%{_snap}.tar.bz2
-# Source0-md5:	1a0cb66446b73fddb739350e467f86a2
+Source0:	ftp://ftp.berlios.de/pub/xfce-goodies/%{version}/%{name}-%{version}.tar.gz
+# Source0-md5:	317b70df42e5f65fd3d7182c4c93183b
 Patch0:		%{name}-locale-names.patch
 URL:		http://www.xfce.org/
 BuildRequires:	autoconf
@@ -47,10 +45,9 @@ Header file for other apps to be able to build their own mcs plugins.
 Plik nag³ówkowy umo¿liwiaj±cy innym aplikacjom budowanie wtyczek mcs.
 
 %prep
-%setup -q -n %{name}
+%setup -q
 %patch0 -p1
 
-mv -f po/{fa_IR,fa}.po
 mv -f po/{pt_PT,pt}.po
 
 %build
