@@ -43,11 +43,15 @@ rm -f missing
 glib-gettextize --copy --force
 intltoolize --copy --force
 %configure
+
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT%{_libdir}/xfce4/mcs-plugins
+
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 %find_lang %{name}
 
@@ -58,8 +62,11 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog
 %attr(755,root,root) %{_bindir}/*
+%dir %{_libdir}/xfce4
+%dir %{_libdir}/xfce4/mcs-plugins
 %docdir %{_datadir}/xfce4/doc
-%{_datadir}/xfce4/doc
+%dir %{_datadir}/xfce4/doc
+%{_datadir}/xfce4/doc/C
 
 %files devel
 %defattr(644,root,root,755)
