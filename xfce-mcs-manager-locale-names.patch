@@ -1,13 +1,13 @@
---- xfce-mcs-manager-4.1.99.2/configure.ac.orig	2004-12-11 15:41:05.000000000 +0100
-+++ xfce-mcs-manager-4.1.99.2/configure.ac	2004-12-13 21:26:30.467270776 +0100
+--- xfce-mcs-manager-4.1.99.3/configure.ac.orig	2004-12-20 22:00:56.000000000 +0100
++++ xfce-mcs-manager-4.1.99.3/configure.ac	2004-12-28 09:29:11.512621984 +0100
 @@ -47,8 +47,8 @@
  
  dnl Check for i18n support
  BM_I18N([xfce-mcs-manager], [ar az be bg ca cs de en_GB es es_MX et eu fa \
 -                             fi fr gu he hi hu it ja ko lt ms nb_NO nl pa
--			     pt_BR pt_PT pl ru sk sv ta tr uk vi zh_CN zh_TW])
+-			     pt_BR pt_PT pl ro ru sk sv ta tr uk vi zh_CN
 +                             fi fr gu he hi hu it ja ko lt ms nb nl pa
-+			     pt_BR pt pl ru sk sv ta tr uk vi zh_CN zh_TW])
++			     pt_BR pt pl ro ru sk sv ta tr uk vi zh_CN
+ 			     zh_TW])
  
  dnl Check for libxfcegui4
- BM_DEPEND([LIBXFCEGUI4], [libxfcegui4-1.0], [4.1.99])
