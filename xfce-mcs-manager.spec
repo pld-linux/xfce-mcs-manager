@@ -20,6 +20,8 @@ BuildRequires:	libxfce4mcs-devel >= %{version}
 BuildRequires:	libxfcegui4-devel >= %{version}
 BuildRequires:	libtool
 BuildRequires:	pkgconfig >= 1:0.9.0
+Requires:	libxfce4mcs >= %{version}
+Requires:	libxfcegui4 >= %{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
