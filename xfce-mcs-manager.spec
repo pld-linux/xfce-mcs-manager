@@ -1,19 +1,19 @@
 Summary:	Multi channel settings manager
 Summary(pl):	Zarz±dca ustawieñ wielokana³owych
 Name:		xfce-mcs-manager
-Version:	3.99.2
-Release:	2
+Version:	3.99.3
+Release:	1
 License:	LGPL
 Group:		X11/Applications
-Source0:	http://linux.imp.mx/xfce4/rc2/xfce4-rc2/src/%{name}-%{version}.tar.gz
-# Source0-md5:	406f84f0ced5bc5a41e49fd060f08895
+Source0:	http://www.xfce.org/archive/xfce4-rc3/src/%{name}-%{version}.tar.gz
+# Source0-md5:	efa0059cf4ffcf877f2046fc09ebaf16
 URL:		http://www.xfce.org/
 BuildRequires:	intltool
 BuildRequires:	libxfce4mcs-devel >= 3.99.2
-BuildRequires:	libxfcegui4-devel >= 3.99.2
+BuildRequires:	libxfcegui4-devel >= 3.99.3
 BuildRequires:	pkgconfig >= 0.9.0
 Requires:	libxfce4mcs >= 3.99.2
-Requires:	libxfcegui4 >= 3.99.2
+Requires:	libxfcegui4 >= 3.99.3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
