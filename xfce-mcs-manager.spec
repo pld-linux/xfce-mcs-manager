@@ -1,33 +1,33 @@
 Summary:	Multi channel settings manager
 Summary(pl):	Zarz±dca ustawieñ wielokana³owych
 Name:		xfce-mcs-manager
-Version:	3.99.4
+Version:	4.0.0
 Release:	1
 License:	LGPL
 Group:		X11/Applications
-Source0:	http://www.xfce.org/archive/xfce4-rc4/src/%{name}-%{version}.tar.gz
-# Source0-md5:	f5de19c7bd301caffb42a0d1f399c812
+Source0:	http://www.xfce.org/archive/xfce-%{version}/src/%{name}-%{version}.tar.gz
+# Source0-md5:	f6da38c4a0f906944e67fdb766860065
 URL:		http://www.xfce.org/
 BuildRequires:	intltool
-BuildRequires:	libxfce4mcs-devel >= 3.99.4
-BuildRequires:	libxfcegui4-devel >= 3.99.4
+BuildRequires:	libxfce4mcs-devel >= 4.0.0
+BuildRequires:	libxfcegui4-devel >= 4.0.0
 BuildRequires:	pkgconfig >= 0.9.0
-Requires:	libxfce4mcs >= 3.99.4
-Requires:	libxfcegui4 >= 3.99.4
+Requires:	libxfce4mcs >= 4.0.0
+Requires:	libxfcegui4 >= 4.0.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-xfce-mcs-manager is a multi channel settings manager for xfce4.
+xfce-mcs-manager is a multi channel settings manager for XFce4.
 
 %description -l pl
-xfce-mcs-manager to zarz±dca ustawieñ wielokana³owych dla xfce4.
+xfce-mcs-manager to zarz±dca ustawieñ wielokana³owych dla XFce4.
 
 %package devel
 Summary:	Header file to build xfce-mcs-manager plugins
 Summary(pl):	Plik nag³ówkowy do tworzenia wtyczek xfce-mcs-managera
 Group:		Development/Libraries
-Requires:	libxfce4mcs-devel >= 3.99.4
-Requires:	libxfcegui4-devel >= 3.99.3
+Requires:	libxfce4mcs-devel >= 4.0.0
+Requires:	libxfcegui4-devel >= 4.0.0
 # doesn't require base
 
 %description devel
