@@ -2,16 +2,18 @@ Summary:	Multi channel settings manager
 Summary(pl):	Zarz±dca ustawieñ wielokana³owych
 Name:		xfce-mcs-manager
 Version:	4.0.5
-Release:	1
+Release:	2
 License:	LGPL
 Group:		X11/Applications
 #Source0:	ftp://ftp.berlios.de/pub/xfce-goodies/%{version}/%{name}-%{version}.tar.gz
 Source0:	http://hannelore.f1.fhtw-berlin.de/mirrors/xfce4/xfce-%{version}/src/%{name}-%{version}.tar.gz
 # Source0-md5:	7b56465800c3c5665caf5c48f21f5087
+Patch0:		%{name}-locale-names.patch
 URL:		http://www.xfce.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	intltool
+BuildRequires:	libtool
 BuildRequires:	libxfce4mcs-devel >= %{version}
 BuildRequires:	libxfcegui4-devel >= %{version}
 BuildRequires:	pkgconfig >= 0.9.0
@@ -41,12 +43,18 @@ Plik nag³ówkowy umo¿liwiaj±cy innym aplikacjom budowanie wtyczek mcs.
 
 %prep
 %setup -q
+%patch0 -p1
+
+mv -f po/{no,nb}.po
 
 %build
-rm -f missing
 glib-gettextize --copy --force
 intltoolize --copy --force
-cp -f /usr/share/automake/config.sub .
+%{__libtoolize}
+%{__aclocal} -I m4
+%{__autoconf}
+%{__autoheader}
+%{__automake}
 %configure
 
 %{__make}
