@@ -45,9 +45,7 @@ Plik nag³ówkowy umo¿liwiaj±cy innym aplikacjom budowanie wtyczek mcs.
 rm -f missing
 glib-gettextize --copy --force
 intltoolize --copy --force
-%{__aclocal}
-%{__autoconf}
-%{__automake}
+cp -f /usr/share/automake/config.sub .
 %configure
 
 %{__make}
