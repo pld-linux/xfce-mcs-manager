@@ -49,7 +49,7 @@ intltoolize --copy --force
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_libdir}/xfce4/mcs-plugins
+install -d $RPM_BUILD_ROOT{%{_libdir}/xfce4/mcs-plugins,%{_sysconfdir}/xfce4}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
@@ -68,6 +68,8 @@ rm -rf $RPM_BUILD_ROOT
 %docdir %{_datadir}/xfce4/doc
 %dir %{_datadir}/xfce4/doc
 %{_datadir}/xfce4/doc/C
+# common for some other xfce* packages
+%dir %{_sysconfdir}/xfce4
 
 %files devel
 %defattr(644,root,root,755)
