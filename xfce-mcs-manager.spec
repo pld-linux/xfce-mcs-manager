@@ -19,7 +19,7 @@ BuildRequires:	intltool
 BuildRequires:	libxfce4mcs-devel >= 4.1.3
 BuildRequires:	libxfcegui4-devel >= 4.1.27
 BuildRequires:	libtool
-BuildRequires:	pkgconfig >= 0.9.0
+BuildRequires:	pkgconfig >= 1:0.9.0
 Requires:	libxfce4mcs >= 4.1.3
 Requires:	libxfcegui4 >= 4.1.27
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
