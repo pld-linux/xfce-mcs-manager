@@ -25,9 +25,9 @@ xfce-mcs-manager to zarz±dca ustawieñ wielokana³owych dla xfce4.
 Summary:	Header file to build xfce-mcs-manager plugins
 Summary(pl):	Plik nag³ówkowy do tworzenia wtyczek xfce-mcs-managera
 Group:		Development/Libraries
-Requires:	%{name} = %{version}
 Requires:	libxfce4mcs-devel >= 3.90.0
 Requires: 	libxfcegui4-devel >= 3.90.0
+# doesn't require base
 
 %description devel
 Header file for other apps to be able to build their own mcs plugins.
