@@ -16,6 +16,7 @@ Source0:	%{name}-snap-%{snap}.tar.bz2
 URL:		http://www.xfce.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	intltool
 BuildRequires:	libxfce4mcs-devel >= %{version}
 BuildRequires:	libxfcegui4-devel >= %{version}
 BuildRequires:	libtool
@@ -48,6 +49,8 @@ Plik nag³ówkowy umo¿liwiaj±cy innym aplikacjom budowanie wtyczek mcs.
 %setup -q -n %{name}
 
 %build
+glib-gettextize --copy --force
+intltoolize --copy --force
 %{__libtoolize}
 %{__aclocal} -I m4
 %{__autoheader}
