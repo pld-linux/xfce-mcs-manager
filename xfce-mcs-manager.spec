@@ -17,10 +17,8 @@ BuildRequires:	libtool
 BuildRequires:	libxfce4mcs-devel >= %{version}
 BuildRequires:	libxfcegui4-devel >= %{version}
 BuildRequires:	pkgconfig >= 0.9.0
-BuildRequires:	startup-notification-devel
 Requires:	libxfce4mcs >= %{version}
 Requires:	libxfcegui4 >= %{version}
-Requires:	startup-notification
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
