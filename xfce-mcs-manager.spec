@@ -72,6 +72,7 @@ rm -rf $RPM_BUILD_ROOT
 %docdir %{_datadir}/xfce4/doc
 %dir %{_datadir}/xfce4/doc
 %{_datadir}/xfce4/doc/C
+%lang(fr) %{_datadir}/xfce4/doc/fr
 # common for some other xfce* packages
 %dir %{_sysconfdir}/xfce4
 
