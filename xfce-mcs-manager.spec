@@ -2,7 +2,7 @@ Summary:	Multi channel settings manager
 Summary(pl):	Zarz±dca ustawieñ wielokana³owych
 Name:		xfce-mcs-manager
 Version:	4.0.5
-Release:	2
+Release:	3
 License:	LGPL
 Group:		X11/Applications
 #Source0:	ftp://ftp.berlios.de/pub/xfce-goodies/%{version}/%{name}-%{version}.tar.gz
@@ -45,7 +45,9 @@ Plik nag³ówkowy umo¿liwiaj±cy innym aplikacjom budowanie wtyczek mcs.
 %setup -q
 %patch0 -p1
 
+mv -f po/{fa_IR,fa}.po
 mv -f po/{no,nb}.po
+mv -f po/{pt_PT,pt}.po
 
 %build
 glib-gettextize --copy --force
