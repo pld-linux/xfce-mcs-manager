@@ -5,12 +5,12 @@
 Summary:	Multi channel settings manager
 Summary(pl):	Zarz±dca ustawieñ wielokana³owych
 Name:		xfce-mcs-manager
-Version:	4.2.2
+Version:	4.2.3
 Release:	1
 License:	LGPL v2
 Group:		X11/Applications
 Source0:        http://hannelore.f1.fhtw-berlin.de/mirrors/xfce4/xfce-%{version}/src/%{name}-%{version}.tar.gz
-# Source0-md5:	9f6cdb3f11fc57a458fe7c91540181c9
+# Source0-md5:	029e7cc2b20a3de5f908483b4253f492
 Patch0:		%{name}-locale-names.patch
 URL:		http://www.xfce.org/
 BuildRequires:	autoconf >= 2.50
@@ -91,7 +91,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/xfce4/doc
 %{_datadir}/xfce4/doc/C
 %lang(fr) %{_datadir}/xfce4/doc/fr
-#%lang(it) %{_datadir}/xfce4/doc/it
+%lang(he) %{_datadir}/xfce4/doc/he
 
 # common for some other xfce* packages
 %dir %{_sysconfdir}/xdg/xfce4
