@@ -5,12 +5,12 @@
 Summary:	Multi channel settings manager
 Summary(pl):	Zarz±dca ustawieñ wielokana³owych
 Name:		xfce-mcs-manager
-Version:	4.2.1
+Version:	4.2.3
 Release:	1
 License:	LGPL v2
 Group:		X11/Applications
-Source0:        http://hannelore.f1.fhtw-berlin.de/mirrors/xfce4/xfce-%{version}/src/%{name}-%{version}.tar.gz
-# Source0-md5:	72b68d04bd5ec76fd0a147f824ee049c
+Source0:	http://hannelore.f1.fhtw-berlin.de/mirrors/xfce4/xfce-%{version}/src/%{name}-%{version}.tar.gz
+# Source0-md5:	029e7cc2b20a3de5f908483b4253f492
 Patch0:		%{name}-locale-names.patch
 URL:		http://www.xfce.org/
 BuildRequires:	autoconf >= 2.50
@@ -21,6 +21,7 @@ BuildRequires:	libtool
 BuildRequires:	libxfce4mcs-devel >= %{version}
 BuildRequires:	libxfcegui4-devel >= %{version}
 BuildRequires:	pkgconfig >= 1:0.9.0
+BuildRequires:	xfce4-dev-tools
 Requires:	libxfce4mcs >= %{version}
 Requires:	libxfcegui4 >= %{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -56,7 +57,7 @@ mv -f po/{nb_NO,nb}.po
 glib-gettextize --copy --force
 intltoolize --copy --force
 %{__libtoolize}
-%{__aclocal} -I m4
+%{__aclocal} -I %{_datadir}/xfce4/dev-tools/m4macros
 %{__autoheader}
 %{__automake}
 %{__autoconf}
@@ -89,8 +90,8 @@ rm -rf $RPM_BUILD_ROOT
 %docdir %{_datadir}/xfce4/doc
 %dir %{_datadir}/xfce4/doc
 %{_datadir}/xfce4/doc/C
-#%lang(fr) %{_datadir}/xfce4/doc/fr
-#%lang(it) %{_datadir}/xfce4/doc/it
+%lang(fr) %{_datadir}/xfce4/doc/fr
+%lang(he) %{_datadir}/xfce4/doc/he
 
 # common for some other xfce* packages
 %dir %{_sysconfdir}/xdg/xfce4
