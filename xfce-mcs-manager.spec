@@ -54,8 +54,8 @@ mv -f po/{pt_PT,pt}.po
 mv -f po/{nb_NO,nb}.po
 
 %build
-intltoolize --copy --force
-glib-gettextize --copy --force
+%{__intltoolize}
+%{__glib_gettextize}
 %{__libtoolize}
 %{__aclocal} -I %{_datadir}/xfce4/dev-tools/m4macros
 %{__autoheader}
