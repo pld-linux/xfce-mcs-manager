@@ -1,16 +1,16 @@
 #
 # TODO:
 # - check the icon & the desktop file
-
+#
 Summary:	Multi channel settings manager
 Summary(pl):	Zarz±dca ustawieñ wielokana³owych
 Name:		xfce-mcs-manager
-Version:	4.2.3
+Version:	4.3.90.2
 Release:	1
 License:	LGPL v2
 Group:		X11/Applications
-Source0:	http://hannelore.f1.fhtw-berlin.de/mirrors/xfce4/xfce-%{version}/src/%{name}-%{version}.tar.gz
-# Source0-md5:	029e7cc2b20a3de5f908483b4253f492
+Source0:        http://www.xfce.org/archive/xfce-%{version}/src/%{name}-%{version}.tar.bz2
+# Source0-md5:	32d6107a45dbcfc3b41a10404d9caa77
 Patch0:		%{name}-locale-names.patch
 URL:		http://www.xfce.org/
 BuildRequires:	autoconf >= 2.50
@@ -21,7 +21,8 @@ BuildRequires:	libtool
 BuildRequires:	libxfce4mcs-devel >= %{version}
 BuildRequires:	libxfcegui4-devel >= %{version}
 BuildRequires:	pkgconfig >= 1:0.9.0
-BuildRequires:	xfce4-dev-tools
+BuildRequires:	xfce4-dev-tools >= 4.3.90.2
+Requires(post,postun):	gtk+2 >= 2:2.10.0
 Requires:	libxfce4mcs >= %{version}
 Requires:	libxfcegui4 >= %{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -54,20 +55,21 @@ mv -f po/{pt_PT,pt}.po
 mv -f po/{nb_NO,nb}.po
 
 %build
-intltoolize --copy --force
-glib-gettextize --copy --force
+%{__intltoolize}
+%{__glib_gettextize}
 %{__libtoolize}
-%{__aclocal} -I %{_datadir}/xfce4/dev-tools/m4macros
+%{__aclocal}
 %{__autoheader}
 %{__automake}
 %{__autoconf}
+LDFLAGS="%{rpmldflags} -Wl,--as-needed"
 %configure
 
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_libdir}/xfce4/mcs-plugins,%{_sysconfdir}/xdg/xfce4}
+install -d $RPM_BUILD_ROOT{%{_libdir}/xfce4/{mcs-plugins,modules},%{_sysconfdir}/xdg/xfce4}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
@@ -76,6 +78,12 @@ install -d $RPM_BUILD_ROOT{%{_libdir}/xfce4/mcs-plugins,%{_sysconfdir}/xdg/xfce4
 
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%post
+gtk-update-icon-cache -qf %{_datadir}/icons/hicolor
+
+%postun
+gtk-update-icon-cache -qf %{_datadir}/icons/hicolor
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
@@ -86,12 +94,13 @@ rm -rf $RPM_BUILD_ROOT
 
 %dir %{_libdir}/xfce4
 %dir %{_libdir}/xfce4/mcs-plugins
+%dir %{_libdir}/xfce4/modules
 
 %docdir %{_datadir}/xfce4/doc
 %dir %{_datadir}/xfce4/doc
 %{_datadir}/xfce4/doc/C
 %lang(fr) %{_datadir}/xfce4/doc/fr
-%lang(he) %{_datadir}/xfce4/doc/he
+%lang(it) %{_datadir}/xfce4/doc/it
 
 # common for some other xfce* packages
 %dir %{_sysconfdir}/xdg/xfce4
