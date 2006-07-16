@@ -1,16 +1,16 @@
 #
 # TODO:
 # - check the icon & the desktop file
-
+#
 Summary:	Multi channel settings manager
 Summary(pl):	Zarz±dca ustawieñ wielokana³owych
 Name:		xfce-mcs-manager
-Version:	4.3.90.1
-Release:	2
+Version:	4.3.90.2
+Release:	1
 License:	LGPL v2
 Group:		X11/Applications
 Source0:        http://www.xfce.org/archive/xfce-%{version}/src/%{name}-%{version}.tar.bz2
-# Source0-md5:	58eee1eb36add409b78c6f42dd7b186c
+# Source0-md5:	32d6107a45dbcfc3b41a10404d9caa77
 Patch0:		%{name}-locale-names.patch
 URL:		http://www.xfce.org/
 BuildRequires:	autoconf >= 2.50
@@ -21,7 +21,8 @@ BuildRequires:	libtool
 BuildRequires:	libxfce4mcs-devel >= %{version}
 BuildRequires:	libxfcegui4-devel >= %{version}
 BuildRequires:	pkgconfig >= 1:0.9.0
-BuildRequires:	xfce4-dev-tools
+BuildRequires:	xfce4-dev-tools >= 4.3.90.2
+Requires(post,postun):	gtk+2 >= 2:2.10.0
 Requires:	libxfce4mcs >= %{version}
 Requires:	libxfcegui4 >= %{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -57,10 +58,11 @@ mv -f po/{nb_NO,nb}.po
 %{__glib_gettextize}
 %{__intltoolize}
 %{__libtoolize}
-%{__aclocal} -I %{_datadir}/xfce4/dev-tools/m4macros
+%{__aclocal}
 %{__autoheader}
 %{__automake}
 %{__autoconf}
+LDFLAGS="%{rpmldflags} -Wl,--as-needed"
 %configure
 
 %{__make}
@@ -76,6 +78,12 @@ install -d $RPM_BUILD_ROOT{%{_libdir}/xfce4/{mcs-plugins,modules},%{_sysconfdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%post
+gtk-update-icon-cache -qf %{_datadir}/icons/hicolor
+
+%postun
+gtk-update-icon-cache -qf %{_datadir}/icons/hicolor
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
