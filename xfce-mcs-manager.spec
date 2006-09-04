@@ -5,24 +5,26 @@
 Summary:	Multi channel settings manager
 Summary(pl):	Zarz±dca ustawieñ wielokana³owych
 Name:		xfce-mcs-manager
-Version:	4.3.90.2
-Release:	2
+Version:	4.3.99.1
+Release:	1
 License:	LGPL v2
 Group:		X11/Applications
 Source0:        http://www.xfce.org/archive/xfce-%{version}/src/%{name}-%{version}.tar.bz2
-# Source0-md5:	32d6107a45dbcfc3b41a10404d9caa77
+# Source0-md5:	1a42226297b3b89f19bd17a6841f5c3a
 Patch0:		%{name}-locale-names.patch
 URL:		http://www.xfce.org/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	gettext-devel
-BuildRequires:	intltool
+BuildRequires:	intltool >= 0.35.0
 BuildRequires:	libtool
 BuildRequires:	libxfce4mcs-devel >= %{version}
 BuildRequires:	libxfcegui4-devel >= %{version}
 BuildRequires:	pkgconfig >= 1:0.9.0
-BuildRequires:	xfce4-dev-tools >= 4.3.90.2
+BuildRequires:	rpmbuild(macros) >= 1.311
+BuildRequires:	xfce4-dev-tools >= %{version}
 Requires(post,postun):	gtk+2 >= 2:2.10.1
+Requires(post,postun):	hicolor-icon-theme
 Requires:	libxfce4mcs >= %{version}
 Requires:	libxfcegui4 >= %{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -78,10 +80,10 @@ install -d $RPM_BUILD_ROOT{%{_libdir}/xfce4/{mcs-plugins,modules},%{_sysconfdir}
 rm -rf $RPM_BUILD_ROOT
 
 %post
-gtk-update-icon-cache -qf %{_datadir}/icons/hicolor
+%update_icon_cache hicolor
 
 %postun
-gtk-update-icon-cache -qf %{_datadir}/icons/hicolor
+%update_icon_cache hicolor
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
